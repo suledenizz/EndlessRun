@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "com.eflatun.codepatterns": {
+      "version": "file:C:/Users/SEHER SEVAL/Downloads/BoatStack/Library/PackageCache/com.eflatun.codepatterns@0.0.1",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.unity.cinemachine": {
+      "version": "2.6.11",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.4",
       "depth": 0,
