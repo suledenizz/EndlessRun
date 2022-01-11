@@ -28,10 +28,16 @@ public class PlatformFollower : MonoBehaviour
     {
         float distanceThisFrame = speed * Time.deltaTime;
         distance += distanceThisFrame;
-        if (distanceThisFrame <= spline.Length)
+        if (distance <= spline.Length)
         {
+            //follow path all the time when it reached at the end
             FollowPath();
         }
+        else
+        {
+            distance = 0;
+        }
+        
     }
 
     void FollowPath()
