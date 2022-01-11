@@ -48,7 +48,7 @@ MonoBehaviour:
   player: {fileID: 1653026500692304180}
   spline: {fileID: 0}
   distance: 0
-  speed: 1
+  speed: 3
 --- !u!54 &1653026500692304181
 Rigidbody:
   m_ObjectHideFlags: 0
