@@ -62,8 +62,17 @@ public class PlatformFollower : MonoBehaviour
         {
             Debug.Log("triggered");
             other.gameObject.SetActive(false);
+            StartCoroutine(Active(other));
+            //other.gameObject.SetActive(true);
             score.AddScore(scoreAmount);
             scoreText.text = score.score.ToString();
         }
+    }
+
+    IEnumerator Active(Collider kegel)
+    {
+        
+        yield return new  WaitForSeconds(5);
+        kegel.gameObject.SetActive(true);
     }
 }
