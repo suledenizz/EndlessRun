@@ -67,6 +67,13 @@ public class PlatformFollower : MonoBehaviour
             score.AddScore(scoreAmount);
             scoreText.text = score.score.ToString();
         }
+
+        if (other.gameObject.tag == "Speed")
+        {
+            Debug.Log("speed");
+            speed = 10;
+            StartCoroutine(ChangeSpeed());
+        }
     }
 
     IEnumerator Active(Collider kegel)
@@ -74,5 +81,11 @@ public class PlatformFollower : MonoBehaviour
         
         yield return new  WaitForSeconds(5);
         kegel.gameObject.SetActive(true);
+    }
+
+    IEnumerator ChangeSpeed()
+    {
+        yield return new WaitForSeconds(3);
+        speed = 2f;
     }
 }
