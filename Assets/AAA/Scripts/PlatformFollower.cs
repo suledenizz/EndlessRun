@@ -74,6 +74,13 @@ public class PlatformFollower : MonoBehaviour
             speed = 10;
             StartCoroutine(ChangeSpeed());
         }
+        
+        if (other.gameObject.tag == "Slow")
+        {
+            Debug.Log("slow");
+            speed = 0.75f;
+            StartCoroutine(ChangeSpeed());
+        }
     }
 
     IEnumerator Active(Collider kegel)
