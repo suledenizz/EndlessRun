@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public static Score instance;
     [NonSerialized]
     public int scoreA;
     void Start()
     {
+        instance = this;
         scoreA = 0;
     }
 

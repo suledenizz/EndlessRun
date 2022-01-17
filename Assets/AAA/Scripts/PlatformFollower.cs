@@ -25,10 +25,8 @@ public class PlatformFollower : MonoBehaviour
     [SerializeField]
     private Text scoreText;
 
-    [SerializeField]
-    private int health = 3;
-
     private Score score;
+    private LevelHUD level;
     
     
     void Start()
@@ -109,6 +107,6 @@ public class PlatformFollower : MonoBehaviour
         LateralMover.instance.enabled = false;
         enabled = false;
         speed = 0;
-        Time.timeScale = 0;
+        LevelHUD.instance.FinishScene();
     }
 }
