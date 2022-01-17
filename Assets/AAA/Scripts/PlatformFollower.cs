@@ -24,6 +24,9 @@ public class PlatformFollower : MonoBehaviour
     [SerializeField]
     private Text scoreText;
 
+    [SerializeField]
+    private int health = 3;
+
     private Score score;
     
     
@@ -60,7 +63,6 @@ public class PlatformFollower : MonoBehaviour
     {
         if(other.gameObject.tag == "Kegel")
         {
-            Debug.Log("triggered");
             other.gameObject.SetActive(false);
             StartCoroutine(Active(other));
             //other.gameObject.SetActive(true);
@@ -70,16 +72,19 @@ public class PlatformFollower : MonoBehaviour
 
         if (other.gameObject.tag == "Speed")
         {
-            Debug.Log("speed");
             speed = 10;
             StartCoroutine(ChangeSpeed());
         }
         
         if (other.gameObject.tag == "Slow")
         {
-            Debug.Log("slow");
             speed = 0.75f;
             StartCoroutine(ChangeSpeed());
+        }
+
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Health();
         }
     }
 
@@ -94,5 +99,22 @@ public class PlatformFollower : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         speed = 2f;
+    }
+
+    void Health()
+    {
+        health--;
+        if (health <= 0)
+        {
+            Finish();
+        }
+    }
+
+    void Finish()
+    {
+        LateralMover.instance.enabled = false;
+        enabled = false;
+        speed = 0;
+        Time.timeScale = 0;
     }
 }

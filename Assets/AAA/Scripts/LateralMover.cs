@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sule.BoatStack.InputManagement;
@@ -9,6 +10,13 @@ public class LateralMover : MonoBehaviour
     [SerializeField] private float ballHalfWidth;
     [SerializeField] private float platformHalfWidth;
     [SerializeField] private Transform lateralMover;
+
+    public static LateralMover instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     private float MaxMovementLimit => platformHalfWidth - ballHalfWidth - extraSideBufferWidth;
 
