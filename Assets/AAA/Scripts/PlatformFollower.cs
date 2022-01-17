@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SplineMesh;
@@ -84,9 +85,10 @@ public class PlatformFollower : MonoBehaviour
 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Health();
+            Finish();
         }
     }
+    
 
     IEnumerator Active(Collider kegel)
     {
@@ -100,15 +102,7 @@ public class PlatformFollower : MonoBehaviour
         yield return new WaitForSeconds(3);
         speed = 2f;
     }
-
-    void Health()
-    {
-        health--;
-        if (health <= 0)
-        {
-            Finish();
-        }
-    }
+    
 
     void Finish()
     {
