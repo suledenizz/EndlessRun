@@ -992,6 +992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8386801631164839403, guid: e5c9141272909fc44a900f2f9058d7ee, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8386801631164839404, guid: e5c9141272909fc44a900f2f9058d7ee, type: 3}
       propertyPath: m_RootOrder
       value: 0

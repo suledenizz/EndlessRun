@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SplineMesh;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlatformFollower : MonoBehaviour
@@ -19,20 +20,22 @@ public class PlatformFollower : MonoBehaviour
     [SerializeField] 
     private float speed = 2f;
 
-    [SerializeField]
-    private int scoreAmount = 10;
+    [FormerlySerializedAs("scoreAmount")] [SerializeField]
+    private int scoreValue = 10;
     
     [SerializeField]
     private Text scoreText;
 
     private Score score;
+    private DisplayScore displayScore;
+    private GameSession gameSession;
     private LevelHUD level;
     
     
     void Start()
     {
         score = FindObjectOfType<Score>();
-
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -65,8 +68,10 @@ public class PlatformFollower : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(Active(other));
             //other.gameObject.SetActive(true);
-            score.AddScore(scoreAmount);
-            scoreText.text = score.score.ToString();
+            //score.AddScore(scoreAmount);
+            gameSession.AddToScore(scoreValue);
+            //displayScore.Update();
+            //scoreText.text = score.score.ToString();
         }
 
         if (other.gameObject.tag == "Speed")
