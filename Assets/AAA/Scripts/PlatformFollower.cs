@@ -22,8 +22,8 @@ public class PlatformFollower : MonoBehaviour
 
     [FormerlySerializedAs("scoreAmount")] [SerializeField]
     private int scoreValue = 10;
-    
-    
+
+    [SerializeField] private AudioClip pickUp;
     private DisplayScore displayScore;
     private LevelHUD level;
     
@@ -53,22 +53,23 @@ public class PlatformFollower : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Kegel")
+        if(other.gameObject.CompareTag("Kegel"))
         {
+            AudioSource.PlayClipAtPoint(pickUp, transform.position);
             other.gameObject.SetActive(false);
             StartCoroutine(Active(other));
             GameSession.instance.AddToScore(scoreValue);
         }
 
-        if (other.gameObject.tag == "Speed")
+        if (other.gameObject.CompareTag("Speed"))
         {
-            speed = 10;
+            speed = 7;
             StartCoroutine(ChangeSpeed());
         }
         
-        if (other.gameObject.tag == "Slow")
+        if (other.gameObject.CompareTag("Slow"))
         {
-            speed = 0.75f;
+            speed = 1f;
             StartCoroutine(ChangeSpeed());
         }
 
