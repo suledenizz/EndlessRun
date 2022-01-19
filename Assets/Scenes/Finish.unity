@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2933832252537177709, guid: f0d091259d59bc64fad8d6408ebea214, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2933832252537177710, guid: f0d091259d59bc64fad8d6408ebea214, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 87.4

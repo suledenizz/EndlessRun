@@ -23,20 +23,10 @@ public class PlatformFollower : MonoBehaviour
     [FormerlySerializedAs("scoreAmount")] [SerializeField]
     private int scoreValue = 10;
     
-    [SerializeField]
-    private Text scoreText;
-
-    private Score score;
+    
     private DisplayScore displayScore;
-    private GameSession gameSession;
     private LevelHUD level;
     
-    
-    void Start()
-    {
-        score = FindObjectOfType<Score>();
-        gameSession = FindObjectOfType<GameSession>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -67,11 +57,7 @@ public class PlatformFollower : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             StartCoroutine(Active(other));
-            //other.gameObject.SetActive(true);
-            //score.AddScore(scoreAmount);
-            gameSession.AddToScore(scoreValue);
-            //displayScore.Update();
-            //scoreText.text = score.score.ToString();
+            GameSession.instance.AddToScore(scoreValue);
         }
 
         if (other.gameObject.tag == "Speed")

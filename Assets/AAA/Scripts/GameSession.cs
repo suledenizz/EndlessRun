@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    int score = 0;
+    public static int score=0;
+    public static GameSession instance;
 
     private void Awake()
     {
-        SetUpSingleton();
+        instance = this;
     }
 
     private void SetUpSingleton()
@@ -23,21 +24,20 @@ public class GameSession : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-
-    public int GetScore()
-    {
-        Debug.Log(score);
-        return score;
-    }
-
+    
     public void AddToScore(int scoreValue)
     {
         score += scoreValue;
+    } 
+    
+    public int GetScore()
+    {
+        return score;
     }
-
     public void ResetGame()
     {
-        Destroy(gameObject);
+        score = 0;
+        Destroy(this.gameObject);
     }
 
 }

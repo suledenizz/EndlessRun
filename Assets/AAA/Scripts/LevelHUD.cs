@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class LevelHUD : MonoBehaviour
 {
     public static LevelHUD instance;
-    private Score score;
     void Awake()
     {
         instance = this;
@@ -16,7 +15,7 @@ public class LevelHUD : MonoBehaviour
     public void RetryButton()
     {
         SceneManager.LoadScene(1);
-        FindObjectOfType<GameSession>().ResetGame();
+        GameSession.instance.ResetGame();
     }
 
     public void PlayButton()
